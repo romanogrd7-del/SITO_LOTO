@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC DVN2 1002 - LOTO Placard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a2e;
+            font-family: Arial, sans-serif;
+        }
+        .top-bar {
+            background: #0099d8;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .top-bar h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        .pdf-container {
+            width: 100%;
+            height: calc(100vh - 60px);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h2>🔒 DC DVN2 1002</h2>
+        <a href="pdf/DC DVN2_1002.pdf" download>⬇️ Scarica PDF</a>
+    </div>
+    <div class="pdf-container">
+        <iframe src="pdf/DC DVN2_1002.pdf"></iframe>
+    </div>
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVN2 - LOTO Placards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Amazon Ember', Arial, sans-serif;
+            background: #1a1a2e;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #0099d8, #005f8a);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            background: #16213e;
+            color: white;
+            border: 1px solid #0099d8;
+        }
+        .search-box::placeholder {
+            color: #666;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #16213e;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #0f3460;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #0099d8;
+            box-shadow: 0 10px 30px rgba(0, 153, 216, 0.2);
+        }
+        .card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        .card .name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .card .desc {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8em; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔒 DVN2 - LOTO Placards</h1>
+        <p>Scansiona il QR code o cerca il documento</p>
+    </div>
+
+    <div class="container">
+        <input type="text" class="search-box" id="search"
+               placeholder="🔍 Cerca placard... (es. UTA1, compressore, cancello)"
+               onkeyup="filtra()">
+
+        <div class="grid" id="grid">
+
+            <a href="pdf/DC DVN2_1001.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DC DVN2 1001</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DC DVN2_1002.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DC DVN2 1002</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0001_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0001 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0002_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0002 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0003_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0003 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0004_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0004 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0005_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0005 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0006_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0006 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0007_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0007 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0008_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0008 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0009_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0009 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0010_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0010 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0011_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0011 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0012_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0012 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0013_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0013 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0014_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0014 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0015_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0015 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0016_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0016 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0017_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0017 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0018_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0018 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0019_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0019 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0020_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0020 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0021_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0021 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0022_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0022 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0023_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0023 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0024_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0024 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0025_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0025 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0026_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0026 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0027_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0027 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0028_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0028 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0029_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0029 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0030_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0030 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0031_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0031 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0032_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0032 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0033_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0033 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0034_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0034 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0035_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0035 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0036_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0036 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0037_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0037 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0038_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0038 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0039_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0039 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0040_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0040 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0041_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0041 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0042_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0042 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0043_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0043 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0044_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0044 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0045_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0045 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0046_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0046 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0047_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0047 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0048_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0048 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0049_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0049 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0050_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0050 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0051_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0051 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0052_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0052 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0053_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0053 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0054_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0054 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0055_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0055 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0056_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0056 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0057_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0057 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0058_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0058 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0059_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0059 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/DVN2_0060_1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">DVN2 0060 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA 1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA 2.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA 2</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA 3.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA 3</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA 4.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA 4</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA 5.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA 5</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA 6.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA 6</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA 7.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA 7</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA A.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA A</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA B.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA B</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA C.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA C</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD BAIA D.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD BAIA D</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD CABINA ELETTRICA HVSS_02.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD CABINA ELETTRICA HVSS 02</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD CABINA ELETTRICA HVSS_03.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD CABINA ELETTRICA HVSS 03</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD CANCELLO ENTRATA USCITA TRUCK.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD CANCELLO ENTRATA USCITA TRUCK</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD CANCELLO ENTRATA VAN.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD CANCELLO ENTRATA VAN</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD CANCELLO PARCHEGGIO DIPENDENTI.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD CANCELLO PARCHEGGIO DIPENDENTI</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD CANCELLO USCITA VAN.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD CANCELLO USCITA VAN</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD CANCELLO VIA SECCHI.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD CANCELLO VIA SECCHI</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD ESTENSIONE CABINA ELETTRICA GENERALE.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD ESTENSIONE CABINA ELETTRICA GENERALE</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD POMPA DI CALORE LG1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD POMPA DI CALORE LG1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD POMPA DI CALORE LG2.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD POMPA DI CALORE LG2</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD ROLLER DOOR BAIA 1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD ROLLER DOOR BAIA 1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD ROLLER DOOR BAIA A.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD ROLLER DOOR BAIA A</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD SBARRA CANCELLO ENTRATA VAN.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD SBARRA CANCELLO ENTRATA VAN</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD SBARRA CANCELLO USCITA VAN.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD SBARRA CANCELLO USCITA VAN</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD SBARRA CANCELLO VIA SECCHI.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD SBARRA CANCELLO VIA SECCHI</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD SBARRA PARCHEGGIO DIPENDENTI.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD SBARRA PARCHEGGIO DIPENDENTI</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD SBARRA PERCORSO PEDONALE.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD SBARRA PERCORSO PEDONALE</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD UTA1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD UTA1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD UTA2.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD UTA2</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD UTA3.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD UTA3</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD VRF1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD VRF1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD VRF2.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD VRF2</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD VRV1.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD VRV1</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD VRV2.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD VRV2</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/LOTOPLACARD VRV3.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">LOTOPLACARD VRV3</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/SC_02.01.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">SC 02.01</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/SC_02.02.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">SC 02.02</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/SC_03.01.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">SC 03.01</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/SC_03.02.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">SC 03.02</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+            <a href="pdf/SC_03.03.pdf" class="card" target="_blank">
+                <div class="icon">📋</div>
+                <div class="name">SC 03.03</div>
+                <div class="desc">LOTO Placard - Clicca per aprire</div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Amazon RME - DVN2 Verona | LOTO Placards</p>
+        <p>Ultimo aggiornamento: <span id="date"></span></p>
+    </div>
+
+    <script>
+        // Data aggiornamento
+        document.getElementById('date').textContent = new Date().toLocaleDateString('it-IT');
+
+        // Funzione di ricerca
+        function filtra() {
+            var input = document.getElementById('search').value.toLowerCase();
+            var cards = document.querySelectorAll('.card');
+            cards.forEach(function(card) {
+                var nome = card.querySelector('.name').textContent.toLowerCase();
+                if (nome.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
